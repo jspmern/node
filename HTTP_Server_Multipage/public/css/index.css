@@ -1,0 +1,12 @@
+.container{
+    display:flex;
+    background-color:"blue";
+    background: rgb(243, 160, 160);
+}
+ul{
+    display:flex;
+}
+ul li{
+    padding: 10px;
+    list-style-type: none;
+}
