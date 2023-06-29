@@ -1,7 +1,8 @@
+const { log } = require('console');
 const fs=require('fs');
 
 //--------------- Read file-------------------
-// const data = fs.readFileSync('./hello.txt','utf-8')
+// const data = fs.readFileSync('./hello.txt',"utf-8")
 // console.log(data);
 
 // const data1 = fs.readFileSync('./hello.txt')
@@ -36,6 +37,8 @@ const fs=require('fs');
 // ---------------------Append File----------------------
 // it is used to insert new data into existing file
 
+// fs.appendFileSync("./hello.txt"," JSPIDER",)
+
 // fs.appendFile('./hello.txt'," Hope You have a great day",(err)=>{
 //     if(err){
 //         console.log(err);
@@ -66,7 +69,7 @@ const fs=require('fs');
 
 // const {join}=require('path');
 
-// fs.link(join(__dirname,'.','hello.txt'),join(__dirname,'.','bye.txt'),(err)=>{
+// fs.link(join(__dirname,'hello.txt'),join(__dirname,'bye1.txt'),(err)=>{
 //     if(err){
 //         console.log(err);
 //     }
@@ -81,7 +84,7 @@ const fs=require('fs');
 
 // const {join}=require('path');
 
-// fs.unlink(join(__dirname,'.','bye.txt'),(err)=>{
+// fs.unlink(join(__dirname,'bye.txt'),(err)=>{
 //     if(err){
 //         console.log(err);
 //     }
@@ -96,7 +99,7 @@ const fs=require('fs');
 
 // const {join}=require('path');
 
-// fs.mkdir(join(__dirname,'..','public'),(err)=>{
+// fs.mkdir(join(__dirname,'public'),(err)=>{
 //     if(err){
 //         console.log(err);
 //     }
@@ -107,11 +110,11 @@ const fs=require('fs');
 
 
 // ----------------------------------Delete Folder(rmdir)----------------------
-// mkdir method used for delete the folder
+// rmdir method used for delete the folder
 
 // const {join}=require('path');
 
-// fs.rmdir(join(__dirname,'..','public'),(err)=>{
+// fs.rmdir(join(__dirname,'public'),(err)=>{
 //     if(err){
 //         console.log(err);
 //     }
@@ -119,3 +122,13 @@ const fs=require('fs');
 //         console.log('folder deleted');
 //     }
 // });
+
+// ------------------------rename-------------------
+//for change the name existing file
+fs.rename('./GOODbye.txt',"Vicky.txt",(error)=>{
+    if(error){
+        console.log(error);
+    }else{
+        console.log("file rename succesfull");
+    }
+})
