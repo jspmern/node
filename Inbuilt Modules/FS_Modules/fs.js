@@ -1,5 +1,5 @@
 const { log } = require('console');
-const fs=require('fs');
+const fs = require('fs');
 
 //--------------- Read file-------------------
 // const data = fs.readFileSync('./hello.txt',"utf-8")
@@ -125,10 +125,10 @@ const fs=require('fs');
 
 // ------------------------rename-------------------
 //for change the name existing file
-fs.rename('./GOODbye.txt',"Vicky.txt",(error)=>{
-    if(error){
+fs.rename('./GOODbye.txt', "Vicky.txt", (error) => {
+    if (error) {
         console.log(error);
-    }else{
+    } else {
         console.log("file rename succesfull");
     }
 })

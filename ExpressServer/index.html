@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+        integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark px-5">
+        <a href="/" class="brand h3 text-decoration-none text-light">Jspiders</a>
+    </nav>
+    <form id="form">
+        <div class="container border rounded mt-5 col-sm-5 p-3">
+            <h2 class="text-primary text-center">Create Account</h2>
+            <div class="my-2">
+                <label for="name" class="form-label">Enter Name</label>
+                <input type="text" id="name" name="username" class="form-control">
+            </div>
+            <div class="my-2">
+                <label for="email" class="form-label">Enter Email</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            <div class="my-2">
+                <label for="phone" class="form-label">Enter Phone</label>
+                <input type="text" id="phone" name="phone" class="form-control">
+            </div>
+            <div class="my-2">
+                <label for="name" class="form-label">Gender</label>
+                <div>
+                    <input type="radio" class="form-check-input" name="gender" id="male" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" class="form-check-input" name="gender" id="female" value="female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="my-2">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" name="dob" class="form-control">
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary form-control">Submit</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        let form = document.getElementById('form')
+        // console.log(form);
+        const user = {};
+        form.addEventListener('input', (e) => {
+            // console.log(e.target.value);
+            let value = e.target.value;
+            let name = e.target.name;
+            user[name] = value;
+            // console.log(user);
+        });
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            // console.log(user);
+            const res = await fetch('/post', {
+                method: 'POST',
+                body: JSON.stringify(user),
+                headers: {
+                    "content-type": "application/json",
+                }
+            });
+            const data = await res.json()
+            console.log(data);
+            console.log(res);
+        })
+
+
+
+    </script>
+</body>
+
+</html>
