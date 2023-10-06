@@ -14,8 +14,8 @@ import PrivateRoute from './components/private/PrivateRoute'
 
 function App() {
   return (
-    <div className='relative min-h-screen'>
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className=' min-h-screen'>
         <Nav></Nav>
         <Routes>
           <Route path='/' element={<Home></Home>}></Route>
@@ -27,9 +27,9 @@ function App() {
           <Route path='/login' element={<Login></Login>}></Route>
           <Route path='/signup' element={<Signup></Signup>}></Route>
         </Routes>
-        <Footer></Footer>
-      </BrowserRouter>
-    </div>
+      </div>
+      <Footer></Footer>
+    </BrowserRouter>
   )
 }
 

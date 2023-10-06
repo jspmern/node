@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 // import Login from './auth/Login'
 
 function Nav() {
+    const auth = localStorage.getItem("user")
     return (
         <>
             <nav className='bg-white dark:bg-gray-800 dark:text-white
@@ -18,11 +19,11 @@ function Nav() {
                     <NavLink to="/about" activeClassName="active"><li className="list-none">ABOUT</li></NavLink>
                     <NavLink to="/contact" activeClassName="active"><li className="list-none">CONTACT US</li></NavLink>
                 </div>
-                <Link to="/login">
+                {!auth ? <Link to="/login">
                     <div className='p-2 px-8 bg-blue-400 text-white me-4 hover:bg-slate-100 hover:text-blue-500 rounded-lg'>
                         LOGIN
                     </div>
-                </Link>
+                </Link> : <Link>Logout</Link>}
             </nav>
         </>
 
